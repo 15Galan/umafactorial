@@ -10,22 +10,19 @@ return num*fact(num-1);
 }
 }
 
-ublic static void main(String []args) {
-			Scannerw Scanner(System.in);
-					System.out.print("Introduzca un numero: ");
-							long num = scanInput.nextLong();
+public static void showFac(long num) {
+if (num<0) {
+System.out.println("El factorial no esta definido" + 
+" para numeros negativos");
+} else {
+long fac = fact(num);
 
-									if (num<0) {
-													System.out.println("El factorial no esta definido"
-															+ " para numeros negativos");
-															} else {
-																			long fac = fact(num);
+System.out.println("El factorial de "+num+" es "+fac);
+}
+}
 
-																						System.out.println("El factorial de "+num+" es "+fac);
-																								}
+public static void main(String []args) {
+long num = getNumber();
 
-											scanInput.close();
-												}
-
-
+showFac(num);
 }

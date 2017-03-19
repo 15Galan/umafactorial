@@ -1,0 +1,130 @@
+Manual casero de GIT (básico).
+
+"Directorio de Trabajo" es la dirección donde almacenas los archivos antes de hacer commit, es decir, la carpeta
+donde estés guardando el proyecto a la hora de crear un repositorio desde la consola de comandos.
+
+"Staging Index" es un área temporal donde almacenamos archivos cuyos cambios están a punto de enviarse a GitHub
+a través de commits.
+
+"Commit" es una confirmación de los cambios hechos en uno o varios archivos que permite que estos se almacenen
+en el repositorio.
+
+
+
+Funcionamiento de GIT:
+
+1- Directorio de Trabajo: Modificación de archivos y cambios en los mismos.
+2- Staging Index........: Selección de aquellos archivos cuyos cambios queramos enviar.
+3- Commit...............: Confirmación de los cambios para almacenarlos finalmente en el repositorio.
+
+Directorio de Trabajo [PC]----------(git add)---------> Stagin Index (archivo modificado)--------- (git commit)----------> Commit (archivo confirmado) ----------(git push)---------> Repositorio [GitHub.com]
+
+
+
+Empezando con el "Directorio de Trabajo":
+
+A- "Directorio de Trabajo" desde 0.
+
+1- Galán@GLADOS:~$ cd <dirección>Desplázate en el equipo hasta esa dirección.
+2- Galán@GLADOS:~/dirección$ mkdir <carpeta>Crea una carpeta con ese nombre en la dirección actual.
+3- Galán@GLADOS:~/dirección$ cd <dirección>Igual que el paso 1, pero para actualizar a "dirección/carpeta/".
+4- Galán@GLADOS:~/dirección/carpeta$ git initCrea en esa dirección una carpeta .git ("Directorio de Trabajo") que almacenará los datos del repositorio. La carpeta .git no será visible.
+
+B- "Directorio de Trabajo" ya creado (clonar).
+
+1- Desplázate en el equipo a la dirección donde guardar
+   la copia (clon) con los comandos "cd" y/o "mkdir".
+2- Galán@GLADOS:~/dirección/carpeta12016 git clone <dirección URL del repositorio>Clona los archivos del repositorio de GitHub para tener tu "Directorio de Trabajo" actualizado (podrían haber recibido cambios de colaboradores).
+
+
+
+Añadir archivos a un "Directorio de Trabajo":
+
+1- Desplázate en el equipo al "Directorio de Trabajo"
+   con los comandos "cd" y/o "mkdir".
+2- Galán@GLADOS:~/dirección/carpeta$ cat << FIN > <nombre.tipo>Crea un archivo con ese nombre y de ese tipo, habilita la edición del contenido hasta la palabra "FIN". Si el archivo ya existe, solo lo modifica.
+
+
+
+Añadir archivos al "Staging Index":
+
+1.a- Galán@GLADOS:~/dirección/carpeta$ git add <archivo>Añade al "Stagin Index" el archivo indicado, se usa para añadir un archivo concreto.
+1.b- Galán@GLADOS:~/dirección/carpeta$ git add .Añade al "Stagin Index" todos los archivos modificados o editados en la dirección actual.
+2  - Galán@GLADOS:~/dirección/carpeta$ git statusMostrará un texto informativo sobre los archivos en el "Staging Index" modificados o listos para recibir un "commmit" y sobre archivos eliminados.
+
+
+
+Hacer un "commit":
+
+1- Galán@GLADOS:~/dirección/carpeta$ git commitEjecutará un "commit" sobre todos los archivos del "Stating Index" en la dirección actual, esto abrirá una ventana para añadir un comentario.
+2- Lo siguiente será añadir un comentario.
+
+   Un buen comentario debería responder a las preguntas:
+
+      2.a- ¿Por qué has hecho ese cambio? (Bugs, excepciones...).
+      2.b- ¿Qué cambios has introducido? Descripción breve de cada uno.
+      2.c- ¿Qué consecuencias esperas con esos cambios?
+
+
+      Sintaxis del comentario:
+
+A- La primera línea debería estar escrita en imperativo y con menos de 50 caracteres.
+B- La segunda línea debería ser una línea en blanco a modo de separación.
+C- La tercera línea debería indicar el inicio del cuerpo del mensaje.
+D- El mensaje en sí debería tener saltos de línea manuales y no más de 72 caracteres/línea.
+
+** Emplear la palabra "cambio", ya que no solo enviamos archivos modificados, sino sus cambios.
+
+
+
+Subir un archivo al repositorio de GitHub:
+
+** Para subir un archivo al repositorio de GitHub este debe haber recibido un "commit" previamente.
+
+A- Creando repositorio:
+
+1- Visita la página web, crea un repositorio y copia su dirección URL.
+3- Galán@GLADOS:~/dirección/carpeta$ git remote add origin <dirección URL del repositorio>Enlaza el repositorio con tu "Directorio de Trabajo" actual, de manera que se publicarán en ese repositorio los archivos que envíes desde ese "Directorio de Trabajo".
+4- Galán@GLADOS:~/dirección/carpeta$ git push origin <rama>Tras pedir tu nombre de usuario y contraseña, tus archivos serán subidos a la rama especificada del repositorio de GitHub (por defecto "master").
+
+B- Repositorio existente:
+
+** Si ya especificaste antes la dirección URL del repositorio en GitHub solo debes hacer el paso 3, ya que la información se mantiene.
+
+1- Visita la página web y copia la dirección URL del repositorio.
+2- Galán@GLADOS:~/dirección/carpeta$ git clone <dirección del repositorio>Clona los archivos del repositorio de GitHub para tener tu "Directorio de Trabajo" actualizado (podrían haber recibido cambios de colaboradores).
+3- Galán@GLADOS:~/dirección/carpeta$ git push origin <rama>Tras pedir tu nombre de usuario y contraseña, tus archivos serán subidos a la rama especificada del repositorio de GitHub (por defecto "master").
+
+** Con el comando "git push origin <rama>" envías todos los archivos que hayan recibido un "commit" automáticamente.
+
+
+
+Ramas:
+
+Una rama (branch) es una línea de trabajo adicional con la que poder modificar un archivo, sin modificar el archivo original.
+La rama principal y por defecto es la rama "master", a partir de ella pueden generarse más ramas en paralelo.
+
+A- Crear una rama:
+
+Galán@GLADOS:~/dirección/carpeta$ git checkout -b <nombre>Crea una rama con el nombre especificado y cambia de la rama en la que te encuentres actualmente por la recién creada.
+
+B- Cambiar entre ramas ya creadas:
+
+Galán@GLADOS:~/dirección/carpeta$ git checkout <nombre>Cambia la rama en la que te encuentres actualmente por la rama con el nombre indicado.
+
+C- Trabajar en una rama:
+
+Sitúate en la rama a la que quieras subir el archivo (con los comandos anteriores) y finaliza la subida de un archivo con el comando "git push origin <rama>", indicando la rama a la que quieras
+subir el archivo (rama actual). Los cambios que realices en el archivo desde esa rama no afectarán al resto de archivos en otra rama diferente (aunque sea el mismo archivo).
+
+
+
+Guardar cambios temporales:
+
+A- Galán@GLADOS:~/dirección/carpeta$ git stashGuarda en el "stash" los cambios o el estado de un archivo temporalmente, sin necesidad de hacer un "commit".
+
+B- Galán@GLADOS:~/dirección/carpeta$ git stash popRecupera del "stash" los cambios o el estado más reciente de un archivo que haya sido guardado en el "stash".
+
+
+/---------------|----[Galán]----|
+\---------------/

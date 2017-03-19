@@ -74,3 +74,11 @@ no se haya hecho un "commit".
 git stash popÍtem 16.
 Recupera los cambios guardados o el estado más reciente de la edición de un archivo que se haya guardado mediante
 el comando "git stash".
+
+
+git push --all originÍtem 21.
+Sube al repositorio de GitHub todas las ramas creadas en el "Directorio de Trabajo".
+
+
+gitk --allÍtem "final de la práctica".
+Muestra la interfaz gráfica del programa con el historial de ramas, archivos y "commit"s llevado a cabo en un repositorio.

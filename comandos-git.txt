@@ -1,0 +1,76 @@
+cd <dirección PC>Ítem 1.
+Desplazarse en el equipo hasta la dirección especificada.
+
+
+git init
+Iniciar un directorio como "Directorio de Trabajo" donde almacenar los archivos que se subirán al
+repositorio de GitHub. El "Directorio de Trabajo" se iniciará en la dirección especificada en la
+cabecera de la llamada de la consola.
+
+
+git clone <URL>Ítem 1.
+Clonar en el equipo los archivos del repositorio de GitHub que se encuentran en esa dirección URL.
+Los archivos se clonarán en la dirección especificada en la cabecera de la llamada de la consola.
+Recomendable clonar los archivos de un repositorio existente con frecuencia, para clonar los cambios
+producidos por desarrolladores así como actualizaciones o modificaciones de archivos.
+
+
+cat << <centinela> > <nombre>Ítem 2.
+Crea un archivo con el nombre especificado (se debe incluir la extensión del mismo) e introduce texto,
+normalmente código, hasta la palabra centinela. Una vez escrita la palabra centinela el archivo guardará
+todo el contenido de las líneas precedentes.
+
+
+git add <archivo>Ítem 3.
+Añade el archivo especificado al "Staging Index" para poder hacerle un "commit" más tarde. Solo podrán
+subirse al repositorio de GitHub los archivos confirmados con un "commit" y estos a su vez, solo podrán
+confirmarse si se encuentran en el "Staging Index".
+
+
+git statusÍtem 3.
+Revisa el estado de los archivos (modificados/eliminados) que hayas añadido al "Staging Index".
+Este comando es muy útil ya que ofrece información acerca del estado de los archivos del "Staging Index".
+
+
+git commitÍtem 3.
+Confirma todos los archivos del "Staging Index" y habilita la introducción de un comentario.
+Una vez se ejecuta este comando, todos los archivos afectados ya están listos para ser enviados al repositorio.
+
+
+git commit -m <título>Ítem 3.
+Hace exactamente lo mismo que el comando "git commit", solo que confirma y añade el título del comentario
+en el mismo paso, en lugar de introducir el comentario tras realizar el "commit".
+
+
+git push origin <rama>Ítem 5.
+Envía los archivos confirmados con un "commit" a la rama indicada del repositorio especificado anteriormente.
+La primera vez que se ejecute el comando se pedirán el usuario y la contraseña de la cuenta de GitHub.
+La rama por defecto (y en la que aparecerás al crear un "Directorio de Trabajo") es la rama "master".
+
+
+git checkout -b <nombre>Ítem 5.
+Crea una nueva rama de trabajo con el nombre indicado y cambia de la rama en la que estabas trabajando a la
+recién creada. Otra rama te permitirá editar archivos ya existentes pero sin modificarlos en la rama por defecto
+o en otras ramas, ya que aunque los archivos sean los mismos, sus modificaciones son distintas según en la
+rama desde la que lo edites.
+
+
+git checkout <rama>Ítem 8.
+Cambia tu rama de trabajo actual a la rama especificada.
+
+
+git merge <rama>Ítem 12.
+Combina las modificaciones de la rama en la que estás trabajando con la rama especificada. Sin embargo, algunas
+veces Git no podrá hacer una mezcla 100% satisfactoria, por lo que el archivo resultante contendrá líneas
+informativas indicando qué secciones del archivo no pudieron combinarse para que pueda solucionarse manualmente.
+
+
+git stashÍtem 15.
+Guarda temporalmente las modificaciones que se han hecho en el archivo. Este comando es útil en el caso de surgir
+emergencias o problemas más graves, permitiendo al usuario no perder los cambios realziados en un archivo aunque
+no se haya hecho un "commit".
+
+
+git stash popÍtem 16.
+Recupera los cambios guardados o el estado más reciente de la edición de un archivo que se haya guardado mediante
+el comando "git stash".
